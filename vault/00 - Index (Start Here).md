@@ -36,4 +36,5 @@ This knowledge base tracks the end-to-end lifecycle of the challenge: from bench
 | **Pillar 1: Chroma Bleed Filter** | Verified | Luma-guided guided filter: +9.0% tighter contour alignment. |
 | **End-to-End 3-Stage Pipeline** | Active | `inference.py` running full Chroma + APISR + Temporal stack. |
 | **Open Source Repository Setup** | Complete | Standard layout: `.gitignore`, `LICENSE`, `README.md`, `pyproject.toml`, CI workflow. |
-| **Submission Packaging** | Up Next | Package `submission.zip` and verify in offline mock sandbox. |
+| **Submission Packaging & Verification** | Complete | `submission.zip` built (15.87 MB) and 100% verified in isolated mock sandbox. |
+| **Domain Adaptation (Pillar 2)** | Up Next | Physics-based broadcast degradation and fine-tuning on Re-Anime600. |
