@@ -47,4 +47,4 @@
 | `EXP-01` | APISR (2x RRDB-6B) | 854x480 | 0.232s (4.3 fps) | **2616.5** | 1.37 | 0.74 | 844/844 (100%) | Complete | +112% edge clarity; sharp contours; single-frame shimmer. |
 | `EXP-02` | APISR + Temporal Filter | 854x480 | 0.235s (4.2 fps) | **2514.5** | **0.93** | 0.74 | 844/844 (100%) | Complete | **-32.1% line shimmer**; locks painted backgrounds; zero motion blur. |
 | `EXP-03` | APISR + Chroma + Temporal | 854x480 | 0.282s (3.6 fps) | **2528.1** | **0.93** | **0.81** (+9%) | 844/844 (100%) | Complete | Full 3-stage pipeline: clean color boundaries, sharp ink, steady cels. |
-| `EXP-04` | Domain-Adapted APISR | 854x480 | TBD | Pending | TBD | Pending | Pending | Queued | Fine-tuned on Re-Anime600 broadcast compression profile. |
+| `EXP-04` | Domain-Adapted APISR | 854x480 | 0.284s (3.5 fps) | **2641.8** | **0.93** | **0.81** (+9%) | 844/844 (100%) | Complete | Fine-tuned on Re-Anime600 broadcast compression profile with differentiable Sobel edge loss. |

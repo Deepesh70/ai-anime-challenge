@@ -37,4 +37,5 @@ This knowledge base tracks the end-to-end lifecycle of the challenge: from bench
 | **End-to-End 3-Stage Pipeline** | Active | `inference.py` running full Chroma + APISR + Temporal stack. |
 | **Open Source Repository Setup** | Complete | Standard layout: `.gitignore`, `LICENSE`, `README.md`, `pyproject.toml`, CI workflow. |
 | **Submission Packaging & Verification** | Complete | `submission.zip` built (15.87 MB) and 100% verified in isolated mock sandbox. |
-| **Domain Adaptation (Pillar 2)** | Up Next | Physics-based broadcast degradation and fine-tuning on Re-Anime600. |
+| **Domain Adaptation (Pillar 2)** | Complete | Broadcast degradation simulator + differentiable Sobel edge loss fine-tuning. |
+| **Comprehensive Benchmark & Ablation** | Up Next | Full quantitative evaluation against official baseline on all validation clips. |
