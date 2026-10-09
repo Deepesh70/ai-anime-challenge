@@ -49,3 +49,12 @@
 | `EXP-03` | APISR + Chroma + Temporal | 854x480 | 0.282s (3.6 fps) | **2528.1** | **0.93** | **0.81** (+9%) | 844/844 (100%) | Complete | Full 3-stage pipeline: clean color boundaries, sharp ink, steady cels. |
 | `EXP-04` | Domain-Adapted APISR | 854x480 | 0.284s (3.5 fps) | 1196.2 | **0.93** | 0.71 | 844/844 (100%) | Complete | Pure L1+Sobel fine-tuning; eliminates broadcast blockiness; softer lines. |
 | `EXP-05` | Interpolated APISR (alpha=0.7) | 854x480 | 0.255s (3.9 fps) | **2244.7** (+78%) | **0.93** | **0.73** | 844/844 (100%) | Complete | 70% GAN prior + 30% domain adaptation; sweet spot between sharp ink and clean cel fills. |
+
+---
+
+## 📈 Multi-Clip Robustness Audit (5 Diverse Re-Anime600 Clips)
+* **Average Edge Sharpness Gain:** **+99.3%** (ranging up to +197.1% on detailed scenes).
+* **Average Background Shimmer Reduction:** **-68.3%** (substantial inter-frame static noise suppression).
+* **Average Inference Speed:** **3.9 fps** (~0.256 s/frame) on RTX 4060 GPU.
+* **Peak GPU VRAM:** **1,304.2 MB** (15.9% of 8GB ceiling; zero OOM risk).
+* **Status:** Verified and locked into `submissions/submission.zip`.
