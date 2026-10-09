@@ -16,6 +16,7 @@ This knowledge base tracks the end-to-end lifecycle of the challenge: from bench
 
 ### 💡 Research & Novelty
 * [[07 - Research Contributions & Technical Novelty]]: Core research differentiation, solving single-image video flickering, domain adaptation, and WACV 2027 paper narrative.
+* [[08 - WACV 2027 Workshop Paper Draft]]: Complete formal methodology draft, LaTeX formulations, and experimental ablation tables.
 
 ### 🛠️ Execution & Operations
 * [[05 - Agent Guide & Workspace Cheatsheet]]: Workspace directory map, hardware constraints (RTX 4060 8GB), and agent rules.
