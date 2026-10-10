@@ -152,17 +152,17 @@ def verify_submission_sandbox(zip_path: str = "submissions/submission.zip", quic
     if violations:
         print("[AUDIT FAILED] Violations found:")
         for v in violations:
-            print(f"  ❌ {v}")
+            print(f"  [FAIL] {v}")
         sys.exit(1)
     else:
-        print("  ✅ Rule 1: Zero-argument invocation (`python inference.py`) — PASSED")
-        print("  ✅ Rule 2: Output folder hierarchy (`val_output/<clip_id>/`) — PASSED")
-        print(f"  ✅ Rule 3: Frame count parity ({extracted_frames}/{extracted_frames} frames) — PASSED")
-        print(f"  ✅ Rule 4: Dimensional resolution parity ({width}x{height}) — PASSED")
-        print("  ✅ Rule 5: Frame naming scheme (`%06d.png`) — PASSED")
-        print("  ✅ Rule 6: Image format integrity (uncompressed lossless PNG) — PASSED")
+        print("  [PASS] Rule 1: Zero-argument invocation (`python inference.py`)")
+        print("  [PASS] Rule 2: Output folder hierarchy (`val_output/<clip_id>/`)")
+        print(f"  [PASS] Rule 3: Frame count parity ({extracted_frames}/{extracted_frames} frames)")
+        print(f"  [PASS] Rule 4: Dimensional resolution parity ({width}x{height})")
+        print("  [PASS] Rule 5: Frame naming scheme (`%06d.png`)")
+        print("  [PASS] Rule 6: Image format integrity (uncompressed lossless PNG)")
         print("-" * 65)
-        print("🎉 ALL COMPETITION AUDIT CHECKS PASSED SUCCESSFULLY!")
+        print("ALL COMPETITION AUDIT CHECKS PASSED SUCCESSFULLY!")
         print("=" * 65)
 
     # Clean up mock sandbox after verification to save disk space

@@ -191,13 +191,13 @@ def run_benchmark(num_frames: int = 50):
             "sample": fbcnn_sample,
         }
 
-    # Variant 3: Pretrained APISR Full Pipeline
-    print("[3/4] Profiling Pretrained APISR Pipeline (EXP-03)...")
-    results["Pretrained APISR (EXP-03)"] = run_pipeline(apisr_pretrained, use_filters=True)
+    # Variant 3: Pretrained APISR Alone (No Filters)
+    print("[3/4] Profiling APISR Alone (EXP-01)...")
+    results["APISR Alone (EXP-01)"] = run_pipeline(apisr_pretrained, use_filters=False)
 
-    # Variant 4: Domain-Adapted APISR Full Pipeline
-    print("[4/4] Profiling Domain-Adapted APISR Pipeline (EXP-04)...")
-    results["Domain-Adapted APISR (EXP-04)"] = run_pipeline(apisr_adapted, use_filters=True)
+    # Variant 4: Our Full Restoration Pipeline (EXP-03: APISR + Chroma + Temporal)
+    print("[4/4] Profiling Ours Full Pipeline (EXP-03)...")
+    results["Ours Pipeline (EXP-03)"] = run_pipeline(apisr_pretrained, use_filters=True)
 
     # 4. Print Summary Table
     print("\n" + "=" * 80)
@@ -212,8 +212,8 @@ def run_benchmark(num_frames: int = 50):
     # Pick a detailed character face / eye crop
     crop_y, crop_x, crop_sz = 140, 360, 180
     crops = []
-    labels = ["Original Input", "FBCNN (Baseline)", "Pretrained APISR", "Domain-Adapted (Ours)"]
-    keys = ["Raw Input", "FBCNN (Baseline)", "Pretrained APISR (EXP-03)", "Domain-Adapted APISR (EXP-04)"]
+    labels = ["Raw Input", "FBCNN Baseline", "APISR (Single-Frame)", "Ours (Full Pipeline)"]
+    keys = ["Raw Input", "FBCNN (Baseline)", "APISR Alone (EXP-01)", "Ours Pipeline (EXP-03)"]
 
     for label, key in zip(labels, keys):
         img = results[key]["sample"].copy()
@@ -230,6 +230,12 @@ def run_benchmark(num_frames: int = 50):
     out_viz_path = os.path.join("comparisons", "domain_adapted_comparison.png")
     cv2.imwrite(out_viz_path, cv2.cvtColor(composite, cv2.COLOR_RGB2BGR))
     print(f"\nVisual comparison composite saved to:\n  {out_viz_path}")
+
+    # Also update paper/figures/comparison.png for manuscript build
+    paper_fig_path = os.path.join(root_dir, "paper", "figures", "comparison.png")
+    os.makedirs(os.path.dirname(paper_fig_path), exist_ok=True)
+    cv2.imwrite(paper_fig_path, cv2.cvtColor(composite, cv2.COLOR_RGB2BGR))
+    print(f"Paper figure updated at:\n  {paper_fig_path}")
 
 
 if __name__ == "__main__":

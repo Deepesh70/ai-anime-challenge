@@ -180,11 +180,11 @@ def main():
     # Determine default checkpoint based on model type
     if args.checkpoint is None:
         if args.model == 'apisr':
-            interpolated_ckpt = os.path.join(here, 'model_zoo', 'apisr_reanime600_interpolated.pth')
-            if os.path.isfile(interpolated_ckpt):
-                args.checkpoint = interpolated_ckpt
+            gan_ckpt = os.path.join(here, 'model_zoo', '2x_APISR_RRDB_GAN_generator.pth')
+            if os.path.isfile(gan_ckpt):
+                args.checkpoint = gan_ckpt
             else:
-                args.checkpoint = os.path.join(here, 'model_zoo', '2x_APISR_RRDB_GAN_generator.pth')
+                args.checkpoint = os.path.join(here, 'model_zoo', 'apisr_reanime600_interpolated.pth')
         else:
             args.checkpoint = os.path.join(here, 'model_zoo', 'fbcnn_color.pth')
 

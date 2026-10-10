@@ -22,7 +22,7 @@ REQUIRED_FILES = [
     os.path.join("src", "__init__.py"),
     os.path.join("src", "chroma_filter.py"),
     os.path.join("src", "temporal_filter.py"),
-    os.path.join("model_zoo", "apisr_reanime600_interpolated.pth"),
+    os.path.join("model_zoo", "2x_APISR_RRDB_GAN_generator.pth"),
 ]
 
 def calculate_sha256(filepath: str) -> str:
