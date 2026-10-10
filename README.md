@@ -15,40 +15,23 @@ Modern broadcast anime suffers from distinct artifacts that generic super-resolu
 
 Our three-stage pipeline addresses these degradations in order:
 
-```
-[ Input Frame (480p) ]
-          │
-          ▼
-┌─────────────────────────────────────────────────────────────┐
-│ Stage 1: Luma-Guided Chroma Bleed Filter                    │
-│   • Color space conversion to YCbCr                         │
-│   • He et al. Guided Filtering: Y luma guides Cb & Cr       │
-│   • Confines color diffusion to interior ink boundaries     │
-└─────────────────────────────────────────────────────────────┘
-          │
-          ▼
-┌─────────────────────────────────────────────────────────────┐
-│ Stage 2: Anime Prior Reconstruction (APISR RRDB-6B)         │
-│   • Pure PyTorch Residual-in-Residual Dense Network         │
-│   • 2x Super-Resolution reconstructs crisp vector lines     │
-│   • Anti-aliased cv2.INTER_AREA downsampling to target size │
-└─────────────────────────────────────────────────────────────┘
-          │
-          ▼
-┌─────────────────────────────────────────────────────────────┐
-│ Stage 3: Soft Motion-Gated Temporal Stabilization           │
-│   • Pixel-difference motion gating (tau_static, tau_motion) │
-│   • Frame history accumulation on static background cels    │
-│   • Scene cut detector resets history across shot changes   │
-└─────────────────────────────────────────────────────────────┘
-          │
-          ▼
-[ Output Restored Frame (Matching Dimensions & Frame Rate) ]
-```
+![Architecture](paper/figures/architecture.png)
+
+---
+
+## Visual Comparison
+
+![Visual Comparison](paper/figures/comparison.png)
+
+### Spatio-Temporal Inter-Frame Stability ($x\text{--}t$ Slice)
+
+![Temporal Slice](paper/figures/temporal_slice.png)
 
 ---
 
 ## Benchmark Results
+
+### Component Ablation on `val/10299.mp4`
 
 Evaluated on `val/10299.mp4` (844 frames, 854x480 resolution, 23.98 fps) on an NVIDIA RTX 4060 Laptop GPU:
 
@@ -58,7 +41,20 @@ Evaluated on `val/10299.mp4` (844 frames, 854x480 resolution, 23.98 fps) on an N
 | **FBCNN (Baseline EXP-00)** | 1230.2 (-1.0%) | 1.15 (-16.1%) | 0.7431 (+0.0%) | 0.216 s/fr (~4.6 fps) |
 | **APISR Alone (EXP-01)** | 2616.5 (+110.6%) | 1.28 (-6.6%) | 0.7510 (+1.1%) | 0.232 s/fr (~4.3 fps) |
 | **APISR + Temporal (EXP-02)** | 2598.0 (+109.1%) | **0.93 (-32.1%)** | 0.7512 (+1.1%) | 0.245 s/fr (~4.1 fps) |
-| **Full Pipeline (EXP-03)** | **2634.1 (+112.0%)** | **0.93 (-32.1%)** | **0.8098 (+9.0%)** | 0.282 s/fr (~3.5 fps) |
+| **Full Pipeline (EXP-03)** | **2661.7 (+114.2%)** | **0.93 (-32.1%)** | **0.8098 (+9.0%)** | 0.282 s/fr (~3.5 fps) |
+
+### Multi-Clip Generalization Audit (Re-Anime600)
+
+Evaluated across 5 diverse validation clips in `src/evaluate_validation_suite.py`:
+
+| Clip ID | Raw Edge Sharpness | Restored Edge Sharpness | Gain | Shimmer Reduction |
+| :--- | :---: | :---: | :---: | :---: |
+| `10299.mp4` | 1256.0 | 2091.0 | +66.5% | -89.7% |
+| `103257.mp4` | 582.0 | 799.0 | +37.2% | -58.1% |
+| `104261.mp4` | 1157.0 | 3438.0 | +197.1% | -86.5% |
+| `104361.mp4` | 751.0 | 1105.0 | +47.1% | -96.4% |
+| `105766.mp4` | 346.0 | 859.0 | +148.3% | -10.8% |
+| **Dataset Mean** | **818.4** | **1658.4** | **+99.3%** | **-68.3%** |
 
 ---
 

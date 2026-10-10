@@ -50,6 +50,7 @@ mock_sandbox/
 
 # Keep visual assets directory structure if needed, but ignore raw large outputs
 !comparisons/.gitkeep
+!paper/figures/*.png
 
 # Pretrained Model Weights (>100MB / binary weights)
 # Weights are automatically retrieved or placed into model_zoo/

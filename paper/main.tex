@@ -63,6 +63,13 @@ He et al.~\cite{he2010guided,he2013guided} introduced the Guided Filter as an $O
 
 \section{Proposed Methodology}
 
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/architecture.png}
+\caption{System architecture of the proposed modular anime restoration framework. The pipeline comprises: (1) Stage 1: Structural luma-guided bilateral chroma filtering for 4:2:0 broadcast de-bleeding; (2) Stage 2: Deep generative anime prior (RRDBNet) with $2\times$ sub-pixel upscaling and area-averaged downsampling; and (3) Stage 3: Kinematic motion-gated recurrent temporal filtering for flicker-free static backgrounds and ghost-free character dynamics.}
+\label{fig:architecture}
+\end{figure*}
+
 \subsection{Problem Formulation and Degradation Operator}
 Let $\mathcal{V}_{LQ} = \{I_1, I_2, \dots, I_T\}$ denote an input broadcast anime sequence, where each frame $I_t \in \mathbb{R}^{H \times W \times 3}$ is degraded by optical blur, subsampling, and compression. The objective is to reconstruct a restored sequence $\hat{\mathcal{V}} = \{\hat{I}_1, \dots, \hat{I}_T\}$ with identical spatial dimensions $(H, W)$ and frame count $T$, maximizing contour sharpness while suppressing inter-frame shimmer.
 
@@ -206,6 +213,13 @@ To verify cross-genre robustness, we evaluated the full pipeline across 5 divers
 \end{tabular}%
 }
 \end{table}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figures/temporal_slice.png}
+\caption{Spatio-temporal ($x\text{--}t$) slice analysis across 60 consecutive frames. The vertical axis represents time $t$, and the horizontal axis represents spatial coordinates $x$. Single-frame APISR exhibits severe vertical line jitter in static backgrounds. Our motion-gated temporal filter restores smooth, straight vertical bands (inter-frame stability) while preserving sharp dynamic character boundaries.}
+\label{fig:temporal_slice}
+\end{figure}
 
 \section{Discussion and Limitations}
 
