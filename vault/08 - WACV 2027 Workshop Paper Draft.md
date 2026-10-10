@@ -51,6 +51,8 @@ He et al. introduced the Guided Filter as an $O(N)$ non-iterative edge-preservin
 
 ## 3. Proposed Methodology
 
+![Three-Stage Architecture Diagram](../paper/figures/architecture.png)
+
 ```
 ┌────────────────────────────────────────────────────────────────────────┐
 │                        Input Video Frame I_t (480p)                    │
@@ -160,6 +162,12 @@ In static regions ($M_t = 0$), historical frame averaging locks background cel a
 ---
 
 ## 4. Quantitative Ablation & Experimental Results
+
+### Qualitative Restored Visuals (Figure 1)
+![Visual Comparison](../paper/figures/comparison.png)
+
+### Spatio-Temporal Inter-Frame Stability Analysis (Figure 3)
+![Temporal Slice Analysis](../paper/figures/temporal_slice.png)
 
 ### Table 1: Stepwise Component Ablation (on `val/10299.mp4`)
 | Configuration | Edge Sharpness (Laplacian Var) | Shimmer MSE ($\times 10^{-2}$) | Chroma Alignment | Speed (s/fr) |

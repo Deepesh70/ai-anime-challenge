@@ -6,6 +6,18 @@
 
 ## 📜 Timeline & Log
 
+### 2026-10-10 — Official Submission Package Verified & Publication Figures Finalized
+* **Milestone:** Locked `EXP-03` as the winning competition entry, validated isolated sandbox execution, and completed publication figure suite.
+* **Actions:**
+  * Configured `inference.py` and `package_submission.py` to default to `2x_APISR_RRDB_GAN_generator.pth` combined with chroma and temporal filters.
+  * Rebuilt `submissions/submission.zip` (15.87 MB, SHA-256 `b20f096d4559f63329f7ba11af8ef33a05c60649a886f13314446fc877630810`).
+  * Audited in isolated mock sandbox via `verify_submission.py`: All 6 rules passed with exit code 0 at 2.87 fps throughput (0.348 s/frame).
+  * Generated 3 publication figures in `paper/figures/`:
+    * Figure 1: Qualitative 4-stage comparison (`comparison.png`).
+    * Figure 2: Modular 3-stage architecture diagram at 300 DPI (`architecture.png`).
+    * Figure 3: Spatio-temporal $x\text{--}t$ slice proving background stability across 60 frames (`temporal_slice.png`).
+  * Created `SUBMISSION_GUIDE.md` for formal evaluation portal delivery.
+
 ### 2026-10-09 — Research Contribution Framework & Design Q&A Added
 * **Milestone:** Formalized original technical contributions and paper roadmap; established design FAQ.
 * **Actions:**

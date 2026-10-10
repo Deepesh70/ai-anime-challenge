@@ -12,12 +12,16 @@
 
 \begin{document}
 
-\title{Temporally-Coherent Anime Video Degradation Inversion with Motion-Gated Prior Adaptation on Re-Anime600}
+\title{Temporally-Coherent Anime Video Degradation Inversion with Motion-Gated Prior Adaptation on Re-Anime600\thanks{Official challenge code, pretrained models, and evaluation suites are publicly available at \url{https://github.com/Deepesh70/ai-anime-challenge}.}}
 
 \author{
-\IEEEauthorblockN{AIAnime Team}
-\IEEEauthorblockA{\textit{WACV 2027 Workshop on AI for Animation (AINIME)} \\
-\texttt{https://github.com/Deepesh70/ai-anime-challenge}}
+\IEEEauthorblockN{Deepesh Dangi}
+\IEEEauthorblockA{\textit{IIIT Surat} \\
+\texttt{deepeshdangi700@gmail.com}}
+\and
+\IEEEauthorblockN{Jeevant S}
+\IEEEauthorblockA{\textit{IIIT Surat} \\
+\texttt{ui23cs30@iiitsurat.ac.in}}
 }
 
 \maketitle
@@ -49,6 +53,8 @@ To address these challenges under the strict offline sandbox constraints of the 
     \item \textbf{Weight-Space Model Interpolation:} A parameter-space interpolation between our domain-adapted deblocking model and an adversarial GAN prior ($\alpha = 0.70$), securing a \textbf{+78.3\% edge sharpness gain} without inference latency overhead.
     \item \textbf{Anime Motion-Gated Temporal Stabilization:} A lightweight recurrence filter that detects scene cuts and locks motionless background pixels while passing dynamic character strokes without motion blur, reducing background shimmer by \textbf{68.3\%}.
 \end{enumerate}
+
+\noindent The complete reproducible codebase, pre-packaged challenge submission bundle, and multi-clip evaluation suites are publicly accessible at: \url{https://github.com/Deepesh70/ai-anime-challenge}.
 
 \section{Related Work}
 
