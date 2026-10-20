@@ -27,7 +27,7 @@
 \maketitle
 
 \begin{abstract}
-Restoring legacy broadcast anime video sequences requires inverting compound physical and compression degradations that standard video super-resolution (VSR) frameworks fail to address. Television transmission pipelines subject hand-drawn animation to YUV 4:2:0 chroma subsampling, discrete cosine transform (DCT) block quantization, and high-frequency temporal flickering induced by single-frame deep generative priors. In this paper, we present an end-to-end degradation inversion framework engineered for the AINIME Challenge on the Re-Anime600 benchmark. The pipeline comprises three deterministic stages: (1) an edge-constrained Luma-Guided Chroma Bleed Filter that uses luminance structural gradients ($Y$) to restrict chroma diffusion ($Cb, Cr$) to interior drawing boundaries; (2) a Domain-Adapted Deep Anime Prior employing an RRDB-6B backbone fine-tuned on synthetic broadcast degradation pairs via a differentiable 2D Sobel contour loss and blended in parameter space ($\alpha = 0.70$) to eliminate DCT macroblocking while preserving knife-sharp ink contours; and (3) an Anime Motion-Gated Temporal Consistency Filter designed around the kinematic duality of cel animation, locking motionless background layers while preserving stepped character animation. Evaluated across diverse clips on Re-Anime600, our system achieves an average +99.3\% improvement in edge sharpness and a 68.3\% reduction in background shimmer, operating at 3.9 frames per second with a peak memory footprint of 1,304.2~MB VRAM on an 8~GB consumer GPU.
+Restoring legacy broadcast anime video sequences requires inverting compound physical and compression degradations that standard video super-resolution (VSR) frameworks fail to address. Television transmission pipelines subject hand-drawn animation to YUV 4:2:0 chroma subsampling, discrete cosine transform (DCT) block quantization, and high-frequency temporal flickering induced by single-frame deep generative priors. In this paper, we present an end-to-end degradation inversion framework engineered for the AINIME Challenge on the Re-Anime600 benchmark~\cite{fargetta2026re}. The pipeline comprises three deterministic stages: (1) an edge-constrained Luma-Guided Chroma Bleed Filter that uses luminance structural gradients ($Y$) to restrict chroma diffusion ($Cb, Cr$) to interior drawing boundaries; (2) a Domain-Adapted Deep Anime Prior employing an RRDB-6B backbone fine-tuned on synthetic broadcast degradation pairs via a differentiable 2D Sobel contour loss and blended in parameter space ($\alpha = 0.70$) to eliminate DCT macroblocking while preserving knife-sharp ink contours; and (3) an Anime Motion-Gated Temporal Consistency Filter designed around the kinematic duality of cel animation, locking motionless background layers while preserving stepped character animation. Evaluated across diverse clips on Re-Anime600, our system achieves an average +99.3\% improvement in edge sharpness and a 68.3\% reduction in background shimmer, operating at 3.9 frames per second with a peak memory footprint of 1,304.2~MB VRAM on an 8~GB consumer GPU.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -110,7 +110,7 @@ This prevents color bleeding while preserving subtle artistic color gradients.
 Generic deep super-resolution models over-smooth cartoon line art or hallucinate noisy textures. We adopt the Residual-in-Residual Dense Network (RRDBNet)~\cite{wang2018esrgan,jiang2024apisr} with 6 deep residual blocks as our generative prior.
 
 \subsubsection{Synthetic Forward Degradation}
-Because Re-Anime600 is an \textbf{unpaired broadcast dataset}, supervised training from scratch is ill-posed. We extract high-variance keyframe patches from the training corpus and pass them through our parameterized forward simulator $\mathcal{D}(I_{HQ})$ simulating $2\times$ downsampling, randomized DCT quantization ($Q \in [32, 75]$), chroma subsampling, and Gaussian noise.
+Because Re-Anime600~\cite{fargetta2026re} is an \textbf{unpaired broadcast dataset}, supervised training from scratch is ill-posed. We extract high-variance keyframe patches from the training corpus and pass them through our parameterized forward simulator $\mathcal{D}(I_{HQ})$ simulating $2\times$ downsampling, randomized DCT quantization ($Q \in [32, 75]$), chroma subsampling, and Gaussian noise.
 
 \subsubsection{Differentiable Anime Contour Loss}
 Standard $\mathcal{L}_1$ pixel loss causes regression-to-the-mean, blurring thin ink contours. We introduce a differentiable 2D Sobel edge loss:
@@ -163,7 +163,7 @@ In static regions ($M_t = 0$), historical frame averaging locks background cel a
 \section{Experiments and Ablation Study}
 
 \subsection{Experimental Setup}
-Experiments were executed on an NVIDIA GeForce RTX 4060 Laptop GPU (8GB VRAM) running PyTorch 2.6 with CUDA 12.4 under the official WACV 2027 AINIME sandbox protocol (`python inference.py`). Evaluation is performed on the Re-Anime600 benchmark across standard 480p broadcast anime clips.
+Experiments were executed on an NVIDIA GeForce RTX 4060 Laptop GPU (8GB VRAM) running PyTorch 2.6 with CUDA 12.4 under the official WACV 2027 AINIME sandbox protocol (`python inference.py`). Evaluation is performed on the Re-Anime600 benchmark~\cite{fargetta2026re} across standard 480p broadcast anime clips.
 
 \begin{figure*}[t]
 \centering
@@ -242,6 +242,9 @@ While our soft motion gating handles static background cels and stepped characte
 In this work, we presented a domain-specific video restoration framework for the AINIME Challenge on the Re-Anime600 benchmark. By addressing the physical realities of broadcast transmission---color subsampling bleed via structural luma guidance, DCT block ringing via domain-adapted weight interpolation, and temporal flicker via soft motion-gated recurrence---our pipeline delivers a \textbf{+99.3\% average gain in line edge sharpness} and a \textbf{68.3\% reduction in background shimmer}, while meeting all challenge sandbox and efficiency constraints.
 
 \begin{thebibliography}{10}
+
+\bibitem{fargetta2026re}
+G.~Fargetta, M.~V. Conde, J.~Tanke, R.~Timofte, and S.~Battiato, ``Re-Anime600: A curated benchmark dataset for anime video quality assessment and super-resolution evaluation,'' in \emph{Proc. IEEE/CVF Conf. Comput. Vis. Pattern Recognit. (CVPR)}, pp.~9005--9010, 2026.
 
 \bibitem{chan2022basicvsrpp}
 K.~C. Chan, S.~Zhou, X.~Xu, and C.~C. Loy, ``BasicVSR++: Improving video super-resolution with enhanced propagation and alignment,'' in \emph{Proc. IEEE/CVF Conf. Comput. Vis. Pattern Recognit. (CVPR)}, pp.~5972--5981, 2022.

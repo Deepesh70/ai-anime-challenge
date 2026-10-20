@@ -6,6 +6,14 @@
 
 ## 📜 Timeline & Log
 
+### 2026-10-20 — Organizer Validation Feedback & Leaderboard Update
+* **Milestone:** Official challenge organizers evaluated our validation submission and posted preliminary validation results.
+* **Organizer Updates:**
+  * Validation submission confirmed working and scored.
+  * Added mandatory Re-Anime600 citation (`fargetta2026re`) across `paper/references.bib` and `paper/main.tex`.
+  * Paper submission deadline on OpenReview extended to **October 25, 2026 (Pacific Time)**.
+  * Test Phase opens **October 21, 2026**.
+
 ### 2026-10-10 — Official Submission Package Verified & Publication Figures Finalized
 * **Milestone:** Locked `EXP-03` as the winning competition entry, validated isolated sandbox execution, and completed publication figure suite.
 * **Actions:**
