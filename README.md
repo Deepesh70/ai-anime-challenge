@@ -1,4 +1,10 @@
-# AIAnime: Domain-Specific Restoration Pipeline for Broadcast Anime
+# AIAnime: Temporally-Coherent Anime Video Degradation Inversion with Motion-Gated Prior Adaptation on Re-Anime600
+
+[![Venue](https://img.shields.io/badge/WACVW%202027-Accepted%20(Oral)-blue.svg)](https://wacv2027.thecvf.com/)
+[![Paper](https://img.shields.io/badge/Paper-PDF-red.svg)](paper/paper.pdf)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+> **Accepted for Oral Presentation** at the **1st International Workshop on AI for Anime (AINIME)**, held in conjunction with **IEEE/CVF WACV 2027** (Paper ID: `AINIME-3`).
 
 An open-source restoration pipeline engineered for the **AINIME Anime Video Restoration Challenge** (held in conjunction with the **WACV 2027 Workshop on Anime Computer Vision**).
 
@@ -155,6 +161,22 @@ To prepare the offline evaluation bundle for competition submission:
 1. Ensure `model_zoo/` contains `2x_APISR_RRDB_GAN_generator.pth`.
 2. Ensure `inference.py`, `apisr_arch.py`, `fbcnn_arch.py`, and `src/` are present.
 3. Verify zero network calls are invoked during `python inference.py`.
+
+---
+
+## Citation
+
+If you find this work, codebase, or degradation inversion methodology useful in your research, please cite:
+
+```bibtex
+@inproceedings{dangi2026anime,
+  title={Temporally-Coherent Anime Video Degradation Inversion with Motion-Gated Prior Adaptation on Re-Anime600},
+  author={Dangi, Deepesh and S, Jeevant},
+  booktitle={Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision Workshops (WACVW) - AINIME Workshop},
+  year={2027},
+  note={Accepted for Oral Presentation (Paper ID: AINIME-3)}
+}
+```
 
 ---
 
