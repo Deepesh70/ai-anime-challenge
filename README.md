@@ -1,6 +1,6 @@
 # AIAnime: Temporally-Coherent Anime Video Degradation Inversion with Motion-Gated Prior Adaptation on Re-Anime600
 
-[![Venue](https://img.shields.io/badge/WACVW%202027-Accepted%20(Oral)-blue.svg)](https://wacv2027.thecvf.com/)
+[![Venue](https://img.shields.io/badge/WACVW%202027-Accepted%20(Oral)-blue.svg)](https://openreview.net/group?id=thecvf.com/WACV/2027/Workshop/AINIME)
 [![Paper](https://img.shields.io/badge/Paper-PDF-red.svg)](paper/paper.pdf)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
