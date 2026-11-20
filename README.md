@@ -1,6 +1,7 @@
 # AIAnime: Temporally-Coherent Anime Video Degradation Inversion with Motion-Gated Prior Adaptation on Re-Anime600
 
 [![Venue](https://img.shields.io/badge/WACVW%202027-Accepted%20(Oral)-blue.svg)](https://openreview.net/group?id=thecvf.com/WACV/2027/Workshop/AINIME)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24399521.svg)](https://doi.org/10.5281/zenodo.24399521)
 [![Paper](https://img.shields.io/badge/Paper-PDF-red.svg)](paper/paper.pdf)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
@@ -174,6 +175,8 @@ If you find this work, codebase, or degradation inversion methodology useful in 
   author={Dangi, Deepesh and S, Jeevant},
   booktitle={Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision Workshops (WACVW) - AINIME Workshop},
   year={2027},
+  doi={10.5281/zenodo.24399521},
+  url={https://doi.org/10.5281/zenodo.24399521},
   note={Accepted for Oral Presentation (Paper ID: AINIME-3)}
 }
 ```
